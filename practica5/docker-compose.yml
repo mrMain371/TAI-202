@@ -1,0 +1,10 @@
+services:
+  biblioteca-api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - biblioteca_data:/data
+
+volumes:
+  biblioteca_data:
