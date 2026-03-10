@@ -2,15 +2,15 @@ from fastapi import FastAPI, status, HTTPException, Depends
 from typing import Optional,Annotated
 import asyncio
 from pydantic import BaseModel, Field
-from fastapi.security import HTTPBasic, HTTPBasicCredentials
 import secrets
+
 from datetime import datetime, timedelta, timezone
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 app = FastAPI()
 SECRET_KEY = "tu no metes cabra"
 ALGORITHM = "HS256"
-MinsAlive = 15 
+MinsAlive = 1
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token") 
 def create_access_token(data: dict):
     to_encode = data.copy()
